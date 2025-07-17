@@ -53,24 +53,29 @@ export interface ChapterRecap {
 export interface Book {
   _id: string;
   title: string;
-  subtitle: string;
+  subtitle?: string;
   authors: string[];
   authors_info: Author[];
-  original_info: {
+  leaderboards: string[];
+  original_info?: {
     title: string;
     author: string;
   };
-  categories: string[];
-  publisher: string;
-  publishedDate: string;
-  isbn: string[];
+  categories?: string[];
+  publisher?: string;
+  publishedDate?: string;
+  isbn?: string[];
   thumbnail: string;
   rating: number;
   ratingCount: number;
-  tags: string[];
+  tags?: string[];
   description: string;
-  key_ideas: KeyIdea[];
-  chapter_recaps: ChapterRecap[];
+  key_ideas?: KeyIdea[];
+  chapter_recaps?: ChapterRecap[];
+  seo_quotes?: string[];
+  seo_audience?: string[];
+  chapter_recaps_reading_time?: number;
+  seo_summary?: string;
 }
 
 export function getBooks(): Book[] {
