@@ -1,0 +1,44 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景圆形 -->
+  <circle cx="128" cy="128" r="120" fill="#F3F7FF" />
+  
+  <!-- 书本 -->
+  <g filter="url(#shadow)">
+    <path d="M76 86H180V190C180 193.314 177.314 196 174 196H82C78.6863 196 76 193.314 76 190V86Z" fill="white" />
+    <path d="M76 86H180V190C180 193.314 177.314 196 174 196H82C78.6863 196 76 193.314 76 190V86Z" stroke="#E2E8F0" stroke-width="2" />
+  </g>
+  
+  <!-- 书页 -->
+  <path d="M76 86H180V88H76V86Z" fill="#E2E8F0" />
+  <path d="M76 100H180V102H76V100Z" fill="#E2E8F0" />
+  <path d="M76 114H180V116H76V114Z" fill="#E2E8F0" />
+  <path d="M76 128H180V130H76V128Z" fill="#E2E8F0" />
+  <path d="M76 142H180V144H76V142Z" fill="#E2E8F0" />
+  <path d="M76 156H180V158H76V156Z" fill="#E2E8F0" />
+  <path d="M76 170H180V172H76V170Z" fill="#E2E8F0" />
+  <path d="M76 184H180V186H76V184Z" fill="#E2E8F0" />
+  
+  <!-- 放大镜 -->
+  <g transform="translate(128, 128) rotate(-30) translate(-128, -128)">
+    <circle cx="120" cy="110" r="32" fill="#EBF2FF" stroke="#3B82F6" stroke-width="6" />
+    <path d="M142 132L168 158" stroke="#3B82F6" stroke-width="8" stroke-linecap="round" />
+    
+    <!-- 问号 -->
+    <path d="M120 100C120 97.2386 117.761 95 115 95C112.239 95 110 97.2386 110 100C110 102.761 112.239 105 115 105V115" stroke="#3B82F6" stroke-width="6" stroke-linecap="round" />
+    <circle cx="115" cy="125" r="3" fill="#3B82F6" />
+  </g>
+  
+  <!-- 阴影滤镜 -->
+  <defs>
+    <filter id="shadow" x="70" y="82" width="116" height="122" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+      <feOffset dy="4" />
+      <feGaussianBlur stdDeviation="2" />
+      <feComposite in2="hardAlpha" operator="out" />
+      <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0" />
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
+    </filter>
+  </defs>
+</svg>
