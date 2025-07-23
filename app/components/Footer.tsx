@@ -18,7 +18,7 @@ const footerData: FooterColumn[] = [
   {
     title: "RESOURCES",
     items: [
-      { title: "Book", link: "/books" },
+      { title: "Books", link: "/books" },
       { title: "Book Review", link: "/" },
       { title: "Quote", link: "/" },
     ],

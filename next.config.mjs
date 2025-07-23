@@ -12,7 +12,7 @@ const nextConfig = {
     unoptimized: true
   },
   pageExtensions: ["ts", "tsx", "md", "mdx"],
-  trailingSlash: true,
+  trailingSlash: false,
   compress: true,
 };
 

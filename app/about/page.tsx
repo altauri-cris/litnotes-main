@@ -12,7 +12,7 @@ export const metadata: Metadata = {
       "Learn about LitNotes' mission to make knowledge accessible through concise book summaries. Discover how we help busy professionals and lifelong learners stay informed.",
   },
   alternates: {
-    canonical: "https://lits.litnotes.ai/about",
+    canonical: "https://litnotes.ai/about",
   },
 };
 

@@ -1,82 +1,5 @@
+import { Book } from "@/constants";
 import booksData from "@/data/book.json";
-
-export interface Author {
-  name: string;
-  source_records?: string[];
-  type?: {
-    key: string;
-  };
-  key?: string;
-  alternate_names?: string[];
-  remote_ids?: {
-    librarything?: string;
-    wikidata?: string;
-    goodreads?: string;
-    isni?: string;
-    amazon?: string;
-  };
-  latest_revision?: number;
-  revision?: number;
-  created?: {
-    type: string;
-    value: string;
-  };
-  last_modified?: {
-    type: string;
-    value: string;
-  };
-}
-
-export interface KeyIdea {
-  description: string;
-  title: string;
-  audioOffset: number;
-}
-
-export interface ChapterRecap {
-  title: string;
-  content: string;
-  audio: string;
-  timeCodesUrl: string;
-  duration: number;
-  page: number;
-  href: string;
-  index: number;
-  statistics: {
-    source_words: number;
-    recap_words: number;
-    compression_ratio: number;
-  };
-  level: number;
-}
-
-export interface Book {
-  _id: string;
-  title: string;
-  subtitle?: string;
-  authors: string[];
-  authors_info: Author[];
-  leaderboards: string[];
-  original_info?: {
-    title: string;
-    author: string;
-  };
-  categories?: string[];
-  publisher?: string;
-  publishedDate?: string;
-  isbn?: string[];
-  thumbnail: string;
-  rating: number;
-  ratingCount: number;
-  tags?: string[];
-  description: string;
-  key_ideas?: KeyIdea[];
-  chapter_recaps?: ChapterRecap[];
-  seo_quotes?: string[];
-  seo_audience?: string[];
-  chapter_recaps_reading_time?: number;
-  seo_summary?: string;
-}
 
 export function getBooks(): Book[] {
   return booksData as Book[];
@@ -84,10 +7,10 @@ export function getBooks(): Book[] {
 
 export function getBookBySlug(slug: string): Book | undefined {
   const books = getBooks();
-  return books.find((book) => createSlug(book.title) === slug);
+  return books.find((book) => slugify(book.title) === slug);
 }
 
-export function createSlug(title: string): string {
+export function slugify(title: string): string {
   return title
     .toLowerCase()
     .replace(/[^a-z0-9\s-]/g, "") // Remove special characters
@@ -98,5 +21,5 @@ export function createSlug(title: string): string {
 
 export function getAllBookSlugs(): string[] {
   const books = getBooks();
-  return books.map((book) => createSlug(book.title));
+  return books.map((book) => slugify(book.title));
 }

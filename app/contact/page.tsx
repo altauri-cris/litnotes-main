@@ -12,7 +12,7 @@ export const metadata: Metadata = {
       "Have questions or feedback? Contact the LitNotes team. We're here to help and typically respond within 24-48 hours during business days.",
   },
   alternates: {
-    canonical: "https://lits.litnotes.ai/contact",
+    canonical: "https://litnotes.ai/contact",
   },
 };
 
