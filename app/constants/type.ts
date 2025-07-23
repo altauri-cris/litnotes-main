@@ -19,6 +19,7 @@ export interface Author {
     type: string;
     value: string;
   };
+  bio?: string;
   last_modified?: {
     type: string;
     value: string;
