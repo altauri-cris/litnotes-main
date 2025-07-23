@@ -9,51 +9,48 @@ interface SEOJsonLdProps {
 const SEOJsonLd: React.FC<SEOJsonLdProps> = ({ book }) => {
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "Book",
-    headline: book.title,
-    description: book.description,
-    author: {
-      "@type": "Person",
-      name: book.authors[0],
-    },
-    ...(book.publishedDate && { datePublished: book.publishedDate }),
-    image: {
-      "@type": "ImageObject",
-      url: book.thumbnail,
-    },
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      url: `https://litnotes.ai/book/${slugify(book.title)}`,
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "Litnotes",
-      url: "https://litnotes.ai",
-      logo: {
-        "@type": "ImageObject",
-        url: "https://litnotes.ai/icons/logo.svg",
+    "@type": "WebPage",
+    "name": book.title,
+    "url": `https://litnotes.ai/book/${slugify(book.title)}`,
+    "description": book.description,
+    "mainEntity": {
+      "@type": "Book",
+      "name": book.title,
+      "author": {
+        "@type": "Person",
+        "name": book.authors[0]
       },
-      brand: "Litnotes",
-    },
-    ...(book.seo_quotes && {
-      hasPart: book.seo_quotes.map((quote) => ({
-        "@type": "CreativeWork",
-        text: quote,
-        creator: {
-          "@type": "Person",
-          name: book.authors[0],
-        },
-      })),
-    }),
-    ...(book.rating && {
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: book.rating,
-        ratingCount: book.ratingCount,
-        bestRating: 5,
-        worstRating: 1,
+      "description": book.description,
+      "image": book.thumbnail,
+      ...(book.rating && {
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": book.rating,
+          "bestRating": 5,
+          "ratingCount": book.ratingCount
+        }
+      }),
+      ...(book.publishedDate && { "datePublished": book.publishedDate }),
+      "publisher": {
+        "@type": "Organization",
+        "name": "Litnotes",
+        "url": "https://litnotes.ai",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://litnotes.ai/icons/logo.svg"
+        }
       },
-    }),
+      ...(book.seo_quotes && {
+        "hasPart": book.seo_quotes.map((quote) => ({
+          "@type": "CreativeWork",
+          "text": quote,
+          "creator": {
+            "@type": "Person",
+            "name": book.authors[0]
+          }
+        }))
+      })
+    }
   };
 
   return (
